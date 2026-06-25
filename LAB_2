@@ -1,0 +1,63 @@
+fn triangle_area(a: f64, b: f64, c: f64) -> f64 {
+    let s = (a + b + c) / 2.0;
+    let area_squared = s * (s-a) * (s-b) * (s-c);
+    area_squared.sqrt()
+
+}
+fn main() {
+    let mut n = 7;
+    for i in 1..=12{
+        println!("{} x {} = {}", n, i, n*i)
+    }
+
+let s_a = 3.0;
+    let s_b = 4.0;
+    let s_c = 5.0;
+    let area = triangle_area(s_a, s_b, s_c);
+    println!("The area of the triangle is: {}", area); 
+
+    let current_direction = Direction::South;
+
+    match current_direction {
+        Direction::North => println!("Heading North: It is freezing up here!"),
+        Direction::South => println!("Heading South: It is way too hot down here!"),
+        Direction::East => println!("Heading East: the sun is coming up!"),
+        Direction::West => println!("Heading West: It's getting dark out this way.")
+    }
+
+    let numbers = [1, 3, 5, 8, 11, 14];
+    
+    match find_first_even(&numbers) {
+        Some(even) => println!("Found the first even number: {}", even),
+        None => println!("No even numbers found."),
+    }
+
+for i in 1..=50 {
+        println!("{}", fizzbuzz(i));
+    }
+}
+
+enum Direction {
+    North,
+    South,
+    East,
+    West,
+}
+
+fn find_first_even(numbers: &[i32]) -> Option<i32> {
+    for &num in numbers {
+        if num % 2 == 0 {
+            return Some(num);
+        }
+    }
+    None
+}
+
+fn fizzbuzz(n: u32) -> String {
+    match (n % 3, n % 5) {
+        (0, 0) => String::from("FizzBuzz"),
+        (0, _) => String::from("Fizz"),
+        (_, 0) => String::from("Buzz"),
+        (_, _) => n.to_string(),
+    }
+}
