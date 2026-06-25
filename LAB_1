@@ -1,0 +1,29 @@
+fn main() {
+    let pi: f64 = 3.14159;
+    println!("pi = {}", pi);
+
+    let is_learning: bool = true;
+    println!("is_learning = {}", is_learning);
+
+    let grade = "A";
+    println!("grade = {}", grade);
+
+    let greeting = "Good Evening";
+    let word = first_word(greeting);
+    println!("{}", word); 
+
+    let result = factorial(10);
+    println!("factorial(10) = {}", result);
+}    
+
+fn first_word(s: &str) -> &str {
+    let pos = s.find(' ').unwrap_or(s.len());
+    &s[..pos]
+}
+
+fn factorial(n: u64) -> u64 {
+    match n {
+        0 | 1 => 1,
+        _ => n * factorial(n - 1),
+    }
+}
